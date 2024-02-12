@@ -177,7 +177,8 @@ for idx, row in enumerate(incidents_sheet.iter_rows(min_row=2, values_only=True)
 for idx in reversed(rows_to_delete):
     incidents_sheet.delete_rows(idx)
     
-wb.save(incidents_path+str(time))
+#wb.save(incidents_path+str(time))
+wb.save(incidents_path)
 #***************************************************PROCESS NEW DATA***************************************************
 #Set up Incident Data Dictionary
 incident_data = {}
@@ -237,7 +238,8 @@ for incident_no, incident_details in scraped_data.items():
         # Handle any other unexpected cases
         print(f"Unexpected case encountered for incident number: {incident_no}")
 
-wb.save(incidents_path+str(time))
+#wb.save(incidents_path+str(time))
+wb.save(incidents_path)
 #**************************************************UPDATE ACTIVITY LOG**************************************************
 #activity_headers = [cell.value for cell in activity_log_sheet[1]]
 
@@ -255,7 +257,8 @@ if added_list == "":
 
 activity_log_sheet.append([date, time, updated_list, added_list, archived_list])
 
-wb.save(incidents_path+str(time))
+#wb.save(incidents_path+str(time))
+wb.save(incidents_path)
 wb.close()
 
 #subprocess.run(["open", incidents_path+str(time)])
